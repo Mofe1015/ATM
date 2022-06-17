@@ -7,11 +7,21 @@ currency1 = 100
 amountGiven = 0
 givenNotes = []
 
-contas = ["mofe", "matheus", "bruno", "jan"]
-password = input('Please enter your passsword: ')
+contas = [["mofe", "matheus", "bruno", "jan"],
+          ["1234", "4567", "8910", "8911"]]
 
+username = input('Please enter your username: ')
 
-if password in contas:
+if username in contas[0]:
+
+    userPosition = contas[0].index(username)
+    password = input('Please enter your password: ')
+
+    if password == contas[1][userPosition]:
+        print('correct password')
+    else:
+        print('wrong password')
+
     num = (input('Please enter an ammount: '))
 
     while amountGiven < int(num):
@@ -32,7 +42,7 @@ if password in contas:
             currency1 -= 1
             amountGiven += 1
 else:
-    print('Wrong Password !!')
+    print('Wrong username !!')
 
 
 print(givenNotes)
