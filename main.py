@@ -8,12 +8,13 @@ amountGiven = 0
 givenNotes = []
 
 contas = [["mofe", "matheus", "bruno", "jan"],
-          ["1234", "4567", "8910", "8911"]]
+          ["1234", "4567", "8910", "1112"]]
 
 
-username = input('Please enter your username: ')
+username = 'mofe'
 
-if username in contas[0]:
+while username in contas[0]:
+    username = input('Please enter your username: ')
 
     userPosition = contas[0].index(username)
     password = input('Please enter your password: ')
@@ -40,11 +41,9 @@ if username in contas[0]:
                 givenNotes.append(1)
                 currency1 -= 1
                 amountGiven += 1
+        print(givenNotes)
+        print(sum(givenNotes))
     else:
         print('wrong password')
 else:
     print('Wrong username !!')
-
-
-print(givenNotes)
-print(sum(givenNotes))
