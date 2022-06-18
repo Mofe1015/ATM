@@ -4,19 +4,19 @@ currency10 = 100
 currency5 = 100
 currency1 = 100
 
-amountGiven = 0
-givenNotes = []
 num = 1
 
 contas = [["mofe", "matheus", "bruno", "jan"],
           ["1234", "4567", "8910", "1112"]]
-
 
 while int(num) != 0:
 
     username = input('Please enter your username: ')
 
     if username in contas[0]:
+
+        amountGiven = 0
+        givenNotes = []
 
         userPosition = contas[0].index(username)
         password = input('Please enter your password: ')
