@@ -23,7 +23,8 @@ while int(num) != 0:
         password = input('Please enter your password: ')
 
         if password == contas[1][userPosition]:
-            print('WELCOME', username)
+            print('Welcome', username)
+            print('Yout balance is $B', contas[2][userPosition])
 
             num = (input('Please enter an ammount: '))
 
