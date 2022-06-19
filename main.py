@@ -50,12 +50,14 @@ while int(num) != 0:
                         amountGiven += 1
 
                 newBalance = balance - num
+                contas[2][userPosition] = newBalance
+
                 print('\n\nYour new balance is $B', newBalance)
                 print(givenNotes)
                 print(sum(givenNotes))
             else:
                 print("Sorry your balance is too low")
         else:
-            print('wrong password')
+            print('Wrong password')
     else:
         print('Wrong username !!')
