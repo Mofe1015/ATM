@@ -12,7 +12,7 @@ contas = [["mofe", "matheus", "bruno", "jan"],
 
 while int(num) != 0:
 
-    username = input('Please enter your username: ')
+    username = input('\n\nPlease enter your username: ')
 
     if username in contas[0]:
 
@@ -25,12 +25,12 @@ while int(num) != 0:
         if password == contas[1][userPosition]:
             balance = contas[2][userPosition]
 
-            print('Welcome', username)
+            print('\n\nWelcome', username)
             print('Your balance is $B', balance)
 
-            num = int(input('Please enter an ammount: '))
+            num = int(input('\nPlease enter an amount to withdraw: '))
 
-            if balance > num:
+            if balance > num and num <= 1000:
                 while amountGiven < int(num):
                     if currency50 > 0 and amountGiven+50 <= int(num):
                         givenNotes.append(50)
@@ -52,9 +52,12 @@ while int(num) != 0:
                 newBalance = balance - num
                 contas[2][userPosition] = newBalance
 
-                print('\n\nYour new balance is $B', newBalance)
                 print(givenNotes)
+                print('\nYour new balance is $B', newBalance)
+
                 print(sum(givenNotes))
+            elif num > 1000:
+                print("Exceeded withdrawal limit")
             else:
                 print("Sorry your balance is too low")
         else:
