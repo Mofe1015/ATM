@@ -33,19 +33,19 @@ while int(num) != 0:
             if balance > num and num <= 1000:
                 while amountGiven < int(num):
                     if currency50 > 0 and amountGiven+50 <= int(num):
-                        givenNotes.append(50)
+                        givenNotes.append("B$50")
                         currency50 -= 1
                         amountGiven += 50
                     elif currency10 > 0 and amountGiven+10 <= int(num):
-                        givenNotes.append(10)
+                        givenNotes.append("B$10")
                         currency10 -= 1
                         amountGiven += 10
                     elif currency5 > 0 and amountGiven+5 <= int(num):
-                        givenNotes.append(5)
+                        givenNotes.append("B$5")
                         currency5 -= 1
                         amountGiven += 5
                     elif currency1 > 0 and amountGiven+1 <= int(num):
-                        givenNotes.append(1)
+                        givenNotes.append("B$1")
                         currency1 -= 1
                         amountGiven += 1
 
@@ -53,11 +53,12 @@ while int(num) != 0:
                 contas[2][userPosition] = newBalance
 
                 print(givenNotes)
-                print('\nYour new balance is $B', newBalance)
 
-                print(sum(givenNotes))
+                print("\nSuccesfully withdrew B$", num)
+                print('Your new balance is $B', newBalance)
+
             elif num > 1000:
-                print("Exceeded withdrawal limit")
+                print("Exceeded $B1000 withdrawal limit")
             else:
                 print("Sorry your balance is too low")
         else:
