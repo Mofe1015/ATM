@@ -1,4 +1,4 @@
-
+from os import system
 currency50 = 100
 currency10 = 100
 currency5 = 100
@@ -21,16 +21,18 @@ while int(num) != 0:
 
         userPosition = contas[0].index(username)
         password = input('Please enter your password: ')
+        system('cls')
 
         if password == contas[1][userPosition]:
             balance = contas[2][userPosition]
 
-            print('\n\nWelcome', username)
+            print('\nWelcome', username)
             print('Your balance is $B', balance)
 
             num = int(input('\nPlease enter an amount to withdraw: '))
+            print("\n")
 
-            if balance > num and num <= 1000:
+            if balance >= num and num <= 1000:
                 while amountGiven < int(num):
                     if currency50 > 0 and amountGiven+50 <= int(num):
                         givenNotes.append("B$50")
@@ -52,7 +54,8 @@ while int(num) != 0:
                 newBalance = balance - num
                 contas[2][userPosition] = newBalance
 
-                print(givenNotes)
+                for i in givenNotes:
+                    print(i)
 
                 print("\nSuccesfully withdrew B$", num)
                 print('Your new balance is $B', newBalance)
