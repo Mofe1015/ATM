@@ -12,7 +12,7 @@ contas = [["mofe", "matheus", "bruno", "jan"],
 
 while int(num) != 0:
 
-    username = input('\n\nPlease enter your username: ')
+    username = input('\n\nPor favor insira seu nome de usuário: ')
 
     if username in contas[0]:
 
@@ -20,16 +20,16 @@ while int(num) != 0:
         givenNotes = []
 
         userPosition = contas[0].index(username)
-        password = input('Please enter your password: ')
+        password = input('Por favor, insira sua senha:')
         system('cls')
 
         if password == contas[1][userPosition]:
             balance = contas[2][userPosition]
 
-            print('\nWelcome', username)
-            print('Your balance is $B', balance)
+            print('\nBem-vindo', username)
+            print('Seu saldo é $B', balance)
 
-            num = int(input('\nPlease enter an amount to withdraw: '))
+            num = int(input('\nInsira um valor para sacar: '))
             print("\n")
 
             if balance >= num and num <= 1000:
@@ -57,14 +57,14 @@ while int(num) != 0:
                 for i in givenNotes:
                     print(i)
 
-                print("\nSuccesfully withdrew B$", num)
-                print('Your new balance is $B', newBalance)
+                print("\nSacou B$", num, "com sucesso")
+                print('Seu novo saldo é de $B', newBalance)
 
             elif num > 1000:
-                print("Exceeded $B1000 withdrawal limit")
+                print("Excedeu o limite de saque de $ B1000")
             else:
-                print("Sorry your balance is too low")
+                print("Desculpe, seu saldo está muito baixo")
         else:
-            print('Wrong password')
+            print('Senha incorreta')
     else:
-        print('Wrong username !!')
+        print('Nome de usuário errado !!')
