@@ -20,7 +20,7 @@ while int(num) != 0:
         givenNotes = []
 
         userPosition = contas[0].index(username)
-        password = input('Por favor, insira sua senha:')
+        password = input('Por favor, insira sua senha: ')
         system('cls')
 
         if password == contas[1][userPosition]:
@@ -57,7 +57,7 @@ while int(num) != 0:
                 for i in givenNotes:
                     print(i)
 
-                print("\nSacou B$", num, "com sucesso")
+                print("\nSacou B$", num, "com sucesso !!")
                 print('Seu novo saldo é de $B', newBalance)
 
             elif num > 1000:
