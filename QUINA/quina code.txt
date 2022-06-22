@@ -1,0 +1,53 @@
+programa
+{
+	inclua biblioteca Tipos
+	inclua biblioteca Util --> util
+
+	inteiro surpiseNum[5], quina[5], score=0, newNum=1, newNum2=1,oldNum=0, i=0
+	
+	
+	funcao inicio()
+	{
+		
+		escreva("NÚMEROS GANHADORES: ") 
+		para ( i ; i < 5; i++)
+		{
+			newNum = util.sorteia(1, 5)
+			newNum2 = util.sorteia(1, 5)
+			enquanto(newNum == surpiseNum[0] ou newNum == surpiseNum[1] ou newNum == surpiseNum[2] ou newNum == surpiseNum[3] ou newNum == surpiseNum[4]){
+			    newNum = util.sorteia(1, 5)
+			}
+			enquanto(newNum2 == quina[0] ou newNum2 == quina[1] ou newNum2 == quina[2] ou newNum2 == quina[3] ou newNum2 == quina[4]){
+			    newNum2 = util.sorteia(1, 5)
+			}
+			
+			surpiseNum[i] = newNum
+			quina[i] = newNum2
+			escreva(quina[i], " ") 
+		}
+
+		escreva("\nSEUS NÚMEROS: ") 
+		para (inteiro i = 0; i < 5; i++){
+			escreva(surpiseNum[i], " ") 
+		}
+		
+		escreva("\nNúmeros Corretos: ") 
+		para (inteiro i=0; i<5; i++){
+			para (inteiro x=0; x<5; x++){
+				se (surpiseNum[i] == quina[x]){
+					escreva(surpiseNum[i], " ")
+					score += 1
+				}
+			}	
+		}
+
+		escreva("\n") 
+
+		se (score == 5){
+			escreva("\nQUINA !!!! \nVOCÊ GANHA 1,2 MILHÕES!!!")
+		} senao se (score == 4){escreva("\nQUARDA !!!! \n VOCÊ GANHA 5 MIL!!!")
+		}senao se (score == 3){escreva("\nTERNO !!!! \n VOCÊ GANHA 2,5 MIL!!!")
+		}senao{escreva("\nVOCÊ NÃO GANHOU TENTA NOVAMENTE É APENAS 2 REAIS")}
+		
+	}
+}
