@@ -3,6 +3,7 @@ currency50 = 100
 currency10 = 100
 currency5 = 100
 currency1 = 100
+totalCurrency = 500
 
 num = 1
 
@@ -32,7 +33,7 @@ while int(num) != 0:
             num = int(input('\nInsira um valor para sacar: '))
             print("\n")
 
-            if balance >= num and num <= 1000:
+            if balance >= num and num <= 1000 and totalCurrency > num:
                 while amountGiven < int(num):
                     if currency50 > 0 and amountGiven+50 <= int(num):
                         givenNotes.append("B$50")
@@ -52,6 +53,7 @@ while int(num) != 0:
                         amountGiven += 1
 
                 newBalance = balance - num
+                totalCurrency -= num
                 contas[2][userPosition] = newBalance
 
                 for i in givenNotes:
@@ -59,7 +61,9 @@ while int(num) != 0:
 
                 print("\nSacou B$", num, "com sucesso !!")
                 print('Seu novo saldo é de $B', newBalance)
-
+            elif totalCurrency < num:
+                print(
+                    "Not enough money in the system for this withdraw, total money availabe is", totalCurrency)
             elif num > 1000:
                 print("Excedeu o limite de saque de $ B1000")
             else:
