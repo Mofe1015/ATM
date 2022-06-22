@@ -3,7 +3,7 @@ currency50 = 100
 currency10 = 100
 currency5 = 100
 currency1 = 100
-totalCurrency = 500
+totalCurrency = 6600
 
 num = 1
 
@@ -63,7 +63,7 @@ while int(num) != 0:
                 print('Seu novo saldo é de $B', newBalance)
             elif totalCurrency < num:
                 print(
-                    "Not enough money in the system for this withdraw, total money availabe is", totalCurrency)
+                    "Não há dinheiro suficiente no sistema para este saque, o total de dinheiro disponível é 300", totalCurrency)
             elif num > 1000:
                 print("Excedeu o limite de saque de $ B1000")
             else:
