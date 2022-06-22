@@ -3,8 +3,8 @@ currency50 = 100
 currency10 = 100
 currency5 = 100
 currency1 = 100
-totalCurrency = 6600
-
+totalCurrency = 50*currency50 + 10*currency10 + 5*currency5 + 1*currency1
+print(totalCurrency)
 num = 1
 
 contas = [["mofe", "matheus", "bruno", "jan"],
