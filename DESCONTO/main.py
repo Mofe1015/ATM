@@ -29,14 +29,14 @@ while n == 1:
             typoDeDesconto = input(
                 "Selecione alguma opção para desconto\n1 para desconto imediato\n2 para desconto guardado\n3 para guadar esse desconto:\n")
 
-            while typoDeDesconto != "1" and typoDeDesconto != "2":
+            while typoDeDesconto != "1" and typoDeDesconto != "2" and typoDeDesconto != "3":
                 print("Opção inválida!")
                 typoDeDesconto = input(
                     "Selecione alguma opção para desconto\n1 para desconto imediato\n2 para usar desconto guardado\n3 para guadar esse desconto:\n")
 
             if typoDeDesconto == "2":
-                precoComDesconto = preco - preco * \
-                    (descontoTtl+contas[1][usario])
+                tudoDesconto = descontoTtl+contas[1][usario]
+                precoComDesconto = preco - (preco*tudoDesconto)
                 contas[1][usario] = 0
                 contas[2][usario] = 0
             elif typoDeDesconto == "1":
@@ -75,6 +75,6 @@ while n == 1:
 
             print("Your total discount is", contas[1][usario]*100, "%")
         else:
-            precoComDesconto = preco
+            precoComDesconto = preco-descontoTtl
 
     print('\npaga : ', precoComDesconto)
