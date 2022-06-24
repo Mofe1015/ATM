@@ -1,19 +1,21 @@
 n = 1
 contas = [[], [], []]
-descontoTtl = 0
-precoComDesconto = 0
 
 while n == 1:
+    descontoTtl = 0
+    precoComDesconto = 0
+
     preco = int(input("qual é o preço total da sua compra: "))
 
     if preco >= 350:
         descontoTtl += 0.01
+
         maisDesconto = preco - 350
         while maisDesconto >= 100:
             maisDesconto -= 100
             descontoTtl += 0.01
 
-    print('Voce ganha', descontoTtl*100, "%"" de desconto")
+    print('Voce ganha', descontoTtl*100, "%" "de desconto")
 
     cadastrada = input('Você tem uma conta cadastrada: ')
     if cadastrada.upper() == "SIM":
@@ -25,44 +27,54 @@ while n == 1:
             usario = contas[0].index(cpf)
 
             typoDeDesconto = input(
-                "Selecione alguma opção para desconto\n1 para desconto imediato\n2 para desconto guardado")
+                "Selecione alguma opção para desconto\n1 para desconto imediato\n2 para desconto guardado\n3 para guadar esse desconto:\n")
 
-            while typoDeDesconto != "1" or typoDeDesconto != "2":
+            while typoDeDesconto != "1" and typoDeDesconto != "2":
                 print("Opção inválida!")
                 typoDeDesconto = input(
-                    "Selecione alguma opção para desconto\n1 para desconto imediato\n2 para desconto guardado:\n")
+                    "Selecione alguma opção para desconto\n1 para desconto imediato\n2 para usar desconto guardado\n3 para guadar esse desconto:\n")
 
             if typoDeDesconto == "2":
-                precoComDesconto = preco
-                contas[1][usario] = descontoTtl
-                contas[2][usario] = 1
+                precoComDesconto = preco - preco * \
+                    (descontoTtl+contas[1][usario])
+                contas[1][usario] = 0
+                contas[2][usario] = 0
             elif typoDeDesconto == "1":
                 precoComDesconto = preco - preco * descontoTtl
+            elif typoDeDesconto == "3":
+                precoComDesconto = preco
+                contas[1][usario] += descontoTtl
+                contas[2][usario] += 1
+
+            print("Your total discount is", contas[1][usario]*100, "%")
 
         else:
             print('Nao ta no conta')
     # Cadastra Uma CONTA
     else:
-        querConta = input("você deseja criar uma conta")
+        querConta = input("você deseja criar uma conta: ")
         if querConta.upper() == "SIM":
             cpf = input("qual é o seu cpf: ")
             contas[0].append(cpf)
-            contas[1].append(0)
-            contas[1].append(0)
+            usario = contas[0].index(cpf)
 
             typoDeDesconto = input(
-                "Selecione alguma opção para desconto\n1 para usar desconto imediato\n2 para guadar esse desconto")
-            print(type(typoDeDesconto))
+                "\n\nSelecione alguma opção para desconto\n1 para usar desconto imediato\n2 para guadar esse desconto: ")
+
             while typoDeDesconto != "1" and typoDeDesconto != "2":
                 print("Opção inválida!")
                 typoDeDesconto = input(
-                    "Selecione alguma opção para desconto\n1 para desconto imediato\n2 para desconto guardado")
+                    "Selecione alguma opção para desconto\n1 para desconto imediato\n2 para guadar esse desconto: ")
 
             if typoDeDesconto == "2":
-                precoComDesconto = preco - preco * descontoTtl
+                precoComDesconto = preco
+                contas[1].append(descontoTtl)
+                contas[2].append(1)
             elif typoDeDesconto == "1":
                 precoComDesconto = preco - preco * descontoTtl
+
+            print("Your total discount is", contas[1][usario]*100, "%")
         else:
             precoComDesconto = preco
 
-    print('paga : ', precoComDesconto)
+    print('\npaga : ', precoComDesconto)
