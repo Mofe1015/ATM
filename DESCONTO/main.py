@@ -21,6 +21,10 @@ while n == 1:
     if cadastrada.upper() == "SIM":
         cpf = input("qual é o seu cpf: ")
 
+        while cpf not in contas[0]:
+            print('Nao ta no conta')
+            cpf = input("Wrong cpf\nqual é o seu cpf: ")
+
         if cpf in contas[0]:
             print('bem vindo')
 
@@ -48,8 +52,6 @@ while n == 1:
 
             print("Your total discount is", contas[1][usario]*100, "%")
 
-        else:
-            print('Nao ta no conta')
     # Cadastra Uma CONTA
     else:
         querConta = input("você deseja criar uma conta: ")
