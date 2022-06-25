@@ -23,7 +23,7 @@ while n == 1:
 
         while cpf not in contas[0]:
             print('Nao ta no conta')
-            cpf = input("Wrong cpf\nqual é o seu cpf: ")
+            cpf = input("\n\nWrong cpf\nqual é o seu cpf: ")
 
         if cpf in contas[0]:
             print('bem vindo')
