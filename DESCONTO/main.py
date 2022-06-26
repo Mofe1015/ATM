@@ -11,11 +11,11 @@ while n == 1:
         descontoTtl += 0.01
 
         maisDesconto = preco - 350
-        while maisDesconto >= 100:
+        while maisDesconto >= 100 and descontoTtl <= 0.25:
             maisDesconto -= 100
             descontoTtl += 0.01
 
-    print('Voce ganha', descontoTtl*100, "%" "de desconto")
+    print('Voce ganha', int(descontoTtl*100), "%" "de desconto")
 
     cadastrada = input('Você tem uma conta cadastrada: ')
     if cadastrada.upper() == "SIM":
