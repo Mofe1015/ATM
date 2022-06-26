@@ -29,7 +29,6 @@ while n == 1:
             print('bem vindo')
 
             usario = contas[0].index(cpf)
-
             typoDeDesconto = input(
                 "Selecione alguma opção para desconto\n1 para desconto imediato\n2 para desconto guardado\n3 para guadar esse desconto:\n")
 
@@ -60,23 +59,24 @@ while n == 1:
             contas[0].append(cpf)
             usario = contas[0].index(cpf)
 
-            typoDeDesconto = input(
-                "\n\nSelecione alguma opção para desconto\n1 para usar desconto imediato\n2 para guadar esse desconto: ")
-
-            while typoDeDesconto != "1" and typoDeDesconto != "2":
-                print("Opção inválida!")
+            if descontoTtl > 0:
                 typoDeDesconto = input(
-                    "Selecione alguma opção para desconto\n1 para desconto imediato\n2 para guadar esse desconto: ")
+                    "\n\nSelecione alguma opção para desconto\n1 para usar desconto imediato\n2 para guadar esse desconto: ")
 
-            if typoDeDesconto == "2":
-                precoComDesconto = preco
-                contas[1].append(descontoTtl)
-                contas[2].append(1)
-            elif typoDeDesconto == "1":
-                precoComDesconto = preco - preco * descontoTtl
+                while typoDeDesconto != "1" and typoDeDesconto != "2":
+                    print("Opção inválida!")
+                    typoDeDesconto = input(
+                        "Selecione alguma opção para desconto\n1 para desconto imediato\n2 para guadar esse desconto: ")
 
-            print("Your total discount is", contas[1][usario]*100, "%")
+                if typoDeDesconto == "2":
+                    precoComDesconto = preco
+                    contas[1].append(descontoTtl)
+                    contas[2].append(1)
+                elif typoDeDesconto == "1":
+                    precoComDesconto = preco - preco * descontoTtl
+
+                print("Your total discount is", contas[1][usario]*100, "%")
         else:
-            precoComDesconto = preco-descontoTtl
+            precoComDesconto = preco - preco * descontoTtl
 
     print('\npaga : ', precoComDesconto)
