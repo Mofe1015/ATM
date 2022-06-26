@@ -29,6 +29,14 @@ while n == 1:
             print('bem vindo')
 
             usario = contas[0].index(cpf)
+
+            if contas[2][usario] == 3:
+                print("You got an automatic discount of 1%")
+                preco = preco - preco * 0.1
+                contas[2][usario] = 0
+            elif descontoTtl > 0:
+                contas[2][usario] += 1
+
             typoDeDesconto = input(
                 "Selecione alguma opção para desconto\n1 para desconto imediato\n2 para desconto guardado\n3 para guadar esse desconto:\n")
 
@@ -41,13 +49,11 @@ while n == 1:
                 tudoDesconto = descontoTtl+contas[1][usario]
                 precoComDesconto = preco - (preco*tudoDesconto)
                 contas[1][usario] = 0
-                contas[2][usario] = 0
             elif typoDeDesconto == "1":
                 precoComDesconto = preco - preco * descontoTtl
             elif typoDeDesconto == "3":
                 precoComDesconto = preco
                 contas[1][usario] += descontoTtl
-                contas[2][usario] += 1
 
             print("Your total discount is", contas[1][usario]*100, "%")
 
@@ -76,6 +82,8 @@ while n == 1:
                     precoComDesconto = preco - preco * descontoTtl
 
                 print("Your total discount is", contas[1][usario]*100, "%")
+            else:
+                precoComDesconto = preco
         else:
             precoComDesconto = preco - preco * descontoTtl
 
