@@ -32,7 +32,7 @@ while n == 1:
 
             if contas[2][usario] == 3:
                 print("You got an automatic discount of 1%")
-                preco = preco - preco * 0.1
+                preco = preco - preco * 0.01
                 contas[2][usario] = 0
             elif descontoTtl > 0:
                 contas[2][usario] += 1
@@ -84,6 +84,8 @@ while n == 1:
                 print("Your total discount is", contas[1][usario]*100, "%")
             else:
                 precoComDesconto = preco
+                contas[1].append(0)
+                contas[2].append(0)
         else:
             precoComDesconto = preco - preco * descontoTtl
 
