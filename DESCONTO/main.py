@@ -23,7 +23,8 @@ while n == 1:
 
         while cpf not in contas[0]:
             print('Nao ta no conta')
-            cpf = input("\n\nWrong cpf\nqual é o seu cpf: ")
+            cpf = input(
+                "\n\nCPF inválido \ntente novamente \nqual é o seu cpf: ")
 
         if cpf in contas[0]:
             print('bem vindo')
@@ -31,19 +32,19 @@ while n == 1:
             usario = contas[0].index(cpf)
 
             if contas[2][usario] == 3:
-                print("You got an automatic discount of 1%")
+                print("Você tem um desconto automático de 1%")
                 preco = preco - preco * 0.01
                 contas[2][usario] = 0
             elif descontoTtl > 0:
                 contas[2][usario] += 1
 
             typoDeDesconto = input(
-                "Selecione alguma opção para desconto\n1 para desconto imediato\n2 para desconto guardado\n3 para guadar esse desconto:\n")
+                "Selecione alguma opção para desconto\n1 para desconto imediato\n2 para usar novo deconto com desconto guardado\n3 para guadar esse desconto:\n")
 
             while typoDeDesconto != "1" and typoDeDesconto != "2" and typoDeDesconto != "3":
                 print("Opção inválida!")
                 typoDeDesconto = input(
-                    "Selecione alguma opção para desconto\n1 para desconto imediato\n2 para usar desconto guardado\n3 para guadar esse desconto:\n")
+                    "Selecione alguma opção para desconto\n1 para desconto imediato\n2 para usar novo deconto com desconto guardado\n3 para guadar esse desconto:\n")
 
             if typoDeDesconto == "2":
                 tudoDesconto = descontoTtl+contas[1][usario]
@@ -55,7 +56,7 @@ while n == 1:
                 precoComDesconto = preco
                 contas[1][usario] += descontoTtl
 
-            print("Your total discount is", contas[1][usario]*100, "%")
+            print("Seu desconto total é", contas[1][usario]*100, "%")
 
     # Cadastra Uma CONTA
     else:
