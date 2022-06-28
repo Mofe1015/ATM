@@ -1,7 +1,7 @@
-n = 0
+n = 1
 contas = [[], [], []]
 
-while n == 0:
+while n == 1:
     descontoTtl = 0
     precoComDesconto = 0
 
