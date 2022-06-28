@@ -1,7 +1,7 @@
-n = 1
+repeat = True
 contas = [[], [], []]
 
-while n == 1:
+while repeat == True:
     descontoTtl = 0
     precoComDesconto = 0
 
