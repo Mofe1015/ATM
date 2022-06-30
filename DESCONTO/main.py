@@ -22,12 +22,12 @@ while repeat == True:
         cpf = input("qual é o seu cpf: ")
 
         while cpf not in contas[0]:
-            print('Nao ta no conta')
+            print('\nNao ta no conta')
             cpf = input(
                 "\n\nCPF inválido \ntente novamente \nqual é o seu cpf: ")
 
         if cpf in contas[0]:
-            print('bem vindo')
+            print('Bem Vindo')
 
             usario = contas[0].index(cpf)
 
