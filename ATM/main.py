@@ -1,17 +1,19 @@
 from os import system
+from timeit import repeat
 currency50 = 100
 currency10 = 100
 currency5 = 100
 currency1 = 100
 totalCurrency = 50*currency50 + 10*currency10 + 5*currency5 + 1*currency1
 print("Total available currency is", totalCurrency)
-num = 1
+
+repeat = True
 
 contas = [["mofe", "matheus", "bruno", "jan", "conta4"],
           ["1234", "4567", "8910", "1112", "1314"],
           [2000, 2000, 2000, 2000]]
 
-while int(num) != 0:
+while repeat == True:
 
     username = input('\n\nPor favor insira seu nome de usuário: ')
 
