@@ -4,6 +4,15 @@
     <a href="contet.html">Content</a>
     <a href="details.html">Details</a>
   </nav>
+  <br />
+  <form>
+    <input placeholder="nome" id="nome" />
+    <input placeholder="Nascimento" id="nasc" />
+    <input placeholder="Email" id="email" />
+    <input placeholder="Cpf" id="cpf" />
+
+    <button>Submit</button>
+  </form>
 
   <body>
     <h2>Pricing</h2>
@@ -14,4 +23,53 @@
     </ul>
   </body>
 </html>
+
+<script>
+  document
+    .getElementById("nome")
+    .addEventListener("change", (e) => console.log(e.target.value));
+
+  document
+    .getElementById("nasc")
+    .addEventListener("change", (e) => console.log(e.target.value));
+
+  function isValidCPF(cpf) {
+    cpf = cpf.replace(/\D/g, "");
+
+    if (cpf.length !== 11 || /^(\d)\1+$/.test(cpf)) {
+      return false;
+    }
+
+    let total = 0;
+    for (let i = 0; i < 9; i++) {
+      total += parseInt(cpf[i]) * (10 - i);
+    }
+    let digit1 = total % 11 < 2 ? 0 : 11 - (total % 11);
+
+    total = 0;
+    for (let i = 0; i < 10; i++) {
+      total += parseInt(cpf[i]) * (11 - i);
+    }
+    let digit2 = total % 11 < 2 ? 0 : 11 - (total % 11);
+
+    return parseInt(cpf[9]) === digit1 && parseInt(cpf[10]) === digit2;
+  }
+
+  function isValidEmail(email) {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
+  }
+
+  document
+    .getElementById("cpf")
+    .addEventListener("change", (e) =>
+      alert(isValidCPF(e.target.value) ? "Valido" : "Invalido")
+    );
+
+  document
+    .getElementById("email")
+    .addEventListener("change", (e) =>
+      alert(isValidEmail(e.target.value) ? "Valido" : "Invalido")
+    );
+</script>
 <!--  -->
